@@ -9,11 +9,31 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "minPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract IERC721",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "descrip",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "increment",
 						"type": "uint256"
 					}
 				],
-				"name": "bid",
+				"name": "openAuction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -32,7 +52,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Auction_Code/Auction_System.sol": "Auction_System"
+			"Auction_Code/Auction_System.sol": "AuctionSystem"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -63,10 +83,10 @@
 			]
 		},
 		"Auction_Code/Auction_System.sol": {
-			"keccak256": "0x4044f13c8d47676777e0c5a7a458ed81d164d36da64b52e112ba3052e9f38317",
+			"keccak256": "0x83fe455bb557588b1d4622af32a96aa0b1aa983d8036215ea57d9b4e687154b3",
 			"urls": [
-				"bzz-raw://17ebd68edd7d6150797065569e9f172143ee88dc56149a799e3d7f8a7b2eff02",
-				"dweb:/ipfs/QmecCvY75dcPTdL86S76EfonN74dx5BnoZfXbZyU3rbvKC"
+				"bzz-raw://2c7333f6e3e438f6bef965afa264e82692184e0133b6ee863867d2feef6c56c6",
+				"dweb:/ipfs/QmWoMuK9Wks63xjsMYQAQB7qpPuBzSsfLEJBRbhc7iYfoc"
 			]
 		}
 	},
