@@ -32,10 +32,11 @@ IERC721 item;
 string description;
 uint256 timeExtensions = 0;
 
-function bid(uint256 amount) public {
-    if(amount > currentPrice)
+function bid() external payable{
+    if(msg.value > currentPrice)
 	{
-		currentPrice = amount;
+		currentPrice = msg.value;
+		highestBidder = msg.sender;
 		if(timeLeft >= 10 && timeExtensions < 10)
 		{
 			timeLeft = 10;
@@ -43,7 +44,6 @@ function bid(uint256 amount) public {
 		}
 }
 }
-
 
 }
 
