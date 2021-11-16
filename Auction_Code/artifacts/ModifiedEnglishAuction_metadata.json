@@ -21,11 +21,6 @@
 						"internalType": "uint256",
 						"name": "_startingBid",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "minimumIncrement",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -224,6 +219,11 @@
 						"internalType": "uint256",
 						"name": "minutesLeft",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minimumIncrements",
+						"type": "uint256"
 					}
 				],
 				"name": "start",
@@ -265,7 +265,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Auction_Code/Auction_System.sol": "EnglishAuction"
+			"Auction_Code/Auction_System.sol": "ModifiedEnglishAuction"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -280,10 +280,10 @@
 	},
 	"sources": {
 		"Auction_Code/Auction_System.sol": {
-			"keccak256": "0x77e239be7344b5b0f19881b1ec78f4a87de6f76559b6b936c587c33c9002ad55",
+			"keccak256": "0xc93b51f788002ae994e05ed5f4ce5cdbd538ba926c0db7d988ce7b21df789004",
 			"urls": [
-				"bzz-raw://6a44a68d8075f9b5f3dd049349e1d107bbc89885eb560472139ea3cfcf24fdda",
-				"dweb:/ipfs/QmUn3tyeyB8FH4YuJcmUEB6F2UpnwFVi8MNxgagZfi5w4p"
+				"bzz-raw://0d4b5db7f41254a0611cfca2c055b5c74947b4cf78eeceb5f720facf1582572c",
+				"dweb:/ipfs/QmYYkMzZ9kBF18HLJUaRnSAv8TRM62tNAphb5tKxATopXA"
 			]
 		}
 	},
