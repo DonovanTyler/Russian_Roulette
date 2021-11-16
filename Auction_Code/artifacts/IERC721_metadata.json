@@ -9,94 +9,41 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_nft",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_nftId",
+						"name": "",
 						"type": "uint256"
 					}
 				],
+				"name": "safeTransferFrom",
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"type": "function"
 			},
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
 						"internalType": "address",
-						"name": "winner",
+						"name": "",
 						"type": "address"
 					},
 					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Win",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "nft",
-				"outputs": [
-					{
-						"internalType": "contract IERC721",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "nftId",
-				"outputs": [
-					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "seller",
-				"outputs": [
-					{
-						"internalType": "address payable",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "win",
+				"name": "transfer",
 				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "winner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -113,7 +60,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Auction_Code/Auction_System.sol": "WinAuction"
+			"Auction_Code/Auction_System.sol": "IERC721"
 		},
 		"evmVersion": "london",
 		"libraries": {},

@@ -1,7 +1,14 @@
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+interface IERC721 {
+    function transfer(address, uint) external;
 
+    function safeTransferFrom(
+        address,
+        address,
+        uint
+    ) external;
+}
 contract EnglishAuction {
     event Start();
     event Bid(address indexed sender, uint amount);
@@ -37,7 +44,7 @@ contract EnglishAuction {
         require(!started, "started");
         require(msg.sender == seller, "not seller");
 
-        nft.transferFrom(msg.sender, address(this), nftId);
+        nft.safeTransferFrom(msg.sender, address(this), nftId);
         started = true;
         endAt = block.timestamp + minutesLeft;
 
