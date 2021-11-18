@@ -12,6 +12,10 @@ contract AuctionSystem {
 	uint256 minimumIncrement;
 	string currency;
 	IERC721 nsfw;
+	address highestBidder;
+    uint256 timeLeft;
+    uint256 bidCount;
+    uint256 timeExtensions = 0;
     function openAuction (uint256 minPrice, uint256 time, IERC721 nft, string memory descrip, uint256 increment) public {
         minimumPrice = minPrice;
 	    bidTime = block.timestamp + time;
@@ -19,31 +23,15 @@ contract AuctionSystem {
         description = descrip;
 	    minimumIncrement = increment;
     }
-}
-
-contract Bidder {
-address highestBidder;
-string itemName;
-uint256 popularity;
-uint256 currentPrice;
-uint256 timeLeft;
-uint256 bidCount;
-IERC721 item;
-string description;
-uint256 timeExtensions = 0;
-
-function bid() external payable{
-    if(msg.value > currentPrice)
-	{
+    function bid() external payable{
+    if(msg.value > currentPrice)	{
 		currentPrice = msg.value;
 		highestBidder = msg.sender;
 		if(timeLeft >= 10 && timeExtensions < 10)
 		{
-			timeLeft = 10;
-}
-
-
-}
+			timeLeft += 10 seconds;
+        }
+    }
 }
 }
 // Test simple win auction
