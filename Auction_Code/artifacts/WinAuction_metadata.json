@@ -127,11 +127,27 @@
 		"remappings": []
 	},
 	"sources": {
-		"Auction_Code/Auction_System.sol": {
-			"keccak256": "0xc93b51f788002ae994e05ed5f4ce5cdbd538ba926c0db7d988ce7b21df789004",
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0xf101e8720213560fab41104d53b3cc7ba0456ef3a98455aa7f022391783144a0",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://0d4b5db7f41254a0611cfca2c055b5c74947b4cf78eeceb5f720facf1582572c",
-				"dweb:/ipfs/QmYYkMzZ9kBF18HLJUaRnSAv8TRM62tNAphb5tKxATopXA"
+				"bzz-raw://3e7820bcf567e6892d937c3cb10db263a4042e446799bca602535868d822384e",
+				"dweb:/ipfs/QmPG2oeDjKncqsEeyYGjAN7CwAJmMgHterXGGnpzhha4z7"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0xa28007762d9da9db878dd421960c8cb9a10471f47ab5c1b3309bfe48e9e79ff4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://796ab6e88af7bf0e78def0f059310c903af6a312b565344e0ff524a0f26e81c6",
+				"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx"
+			]
+		},
+		"Auction_Code/Auction_System.sol": {
+			"keccak256": "0x8cb2677719194d312706b0f84152d45cb2d8d5c1d5da7dca0f1d10d37bc33c3f",
+			"urls": [
+				"bzz-raw://0ec144388b58d4641cf538ddd9b93eccfe85dba3e620d89bbdc4e0ad4cf6816a",
+				"dweb:/ipfs/QmapyGYbpv8jNe3Fdz1fJie1CAjn1w37EujcGar8r7rtoe"
 			]
 		}
 	},

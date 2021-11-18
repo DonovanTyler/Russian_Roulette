@@ -1,103 +1,52 @@
 pragma solidity >=0.7.0 <0.9.0;
 
-interface IERC721 {
-    function transfer(address, uint) external;
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-    function safeTransferFrom(
-        address,
-        address,
-        uint
-    ) external;
-}
-contract ModifiedEnglishAuction {
-    event Start();
-    event Bid(address indexed sender, uint amount);
-    event Withdraw(address indexed bidder, uint amount);
-    event End(address winner, uint amount);
-
-    IERC721 public nft;
-    uint public nftId;
-
-    address payable public seller;
-    uint public endAt;
-    bool public started;
-    bool public ended;
-    uint256 timeExtensions;
-    uint256 minimumIncrement;
-
-    address public highestBidder;
-    uint public highestBid;
-    mapping(address => uint) public bids;
-
-    constructor(
-        address _nft,
-        uint _nftId,
-        uint _startingBid
-    ) {
-        nft = IERC721(_nft);
-        nftId = _nftId;
-
-        seller = payable(msg.sender);
-        highestBid = _startingBid;
-    }
-
-    function start(uint256 minutesLeft, uint256 minimumIncrements) external {
-        require(!started, "started");
-        require(msg.sender == seller, "not seller");
-
-        nft.safeTransferFrom(msg.sender, address(this), nftId);
-        started = true;
-        endAt = block.timestamp + minutesLeft;
-        minimumIncrement = minimumIncrements;
-
-        emit Start();
-    }
-
-    function bid() external payable {
-        require(started, "not started");
-        require(block.timestamp < endAt, "ended");
-        require(msg.value > highestBid + minimumIncrement, "value < highest");
-
-        if (highestBidder != address(0)) {
-            bids[highestBidder] += highestBid;
-        }
-
-        highestBidder = msg.sender;
-        highestBid = msg.value;
-
-        emit Bid(msg.sender, msg.value);
-        
-        if(endAt > 10 seconds && timeExtensions < 10) {
-            endAt += 10 seconds;
-            timeExtensions++;
-        }
-    }
-
-    function withdraw() external {
-        uint bal = bids[msg.sender];
-        bids[msg.sender] = 0;
-        payable(msg.sender).transfer(bal);
-
-        emit Withdraw(msg.sender, bal);
-    }
-
-    function end() external {
-        require(started, "not started");
-        require(block.timestamp >= endAt, "not ended");
-        require(!ended, "ended");
-
-        ended = true;
-        if (highestBidder != address(0)) {
-            nft.transfer(highestBidder, nftId);
-            seller.transfer(highestBid);
-        } else {
-            nft.transfer(seller, nftId);
-        }
-
-        emit End(highestBidder, highestBid);
+contract AuctionSystem {
+    string itemName;
+	uint256 currentPrice;
+	uint256 finalPrice;
+	string description;
+	uint256 minimumPrice;
+	uint256 bidTime;
+	uint256 minimumIncrement;
+	string currency;
+	IERC721 nsfw;
+    function openAuction (uint256 minPrice, uint256 time, IERC721 nft, string memory descrip, uint256 increment) public {
+        minimumPrice = minPrice;
+	    bidTime = block.timestamp + time;
+        nsfw = nft;
+        description = descrip;
+	    minimumIncrement = increment;
     }
 }
 
+contract Bidder {
+address highestBidder;
+string itemName;
+uint256 popularity;
+uint256 currentPrice;
+uint256 timeLeft;
+uint256 bidCount;
+IERC721 item;
+string description;
+uint256 timeExtensions = 0;
+
+function bid() external payable{
+    if(msg.value > currentPrice)
+	{
+		currentPrice = msg.value;
+		highestBidder = msg.sender;
+		if(timeLeft >= 10 && timeExtensions < 10)
+		{
+			timeLeft = 10;
+}
+
+
+}
+}
+}
+// Test simple win auction
 contract WinAuction {
     
     event Win(address winner, uint256 amount);
@@ -116,12 +65,10 @@ contract WinAuction {
         nft = IERC721(_nft);
         nftId = _nftId;
     }
-    modifier onlyWinner {
-        require(msg.sender == winner);
-        _;
-    }
+
     // Winds the auction for the specified amount
-    function win() external payable onlyWinner{
+    function win() external payable {
+        winner = msg.sender;
         nft.safeTransferFrom(seller, msg.sender, nftId);
         seller.transfer(msg.value);
 
