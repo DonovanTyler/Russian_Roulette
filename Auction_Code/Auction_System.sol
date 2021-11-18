@@ -16,50 +16,34 @@ contract AuctionSystem {
     uint256 timeLeft;
     uint256 bidCount;
     uint256 timeExtensions = 0;
+    uint256 originalTime;
     function openAuction (uint256 minPrice, uint256 time, IERC721 nft, string memory descrip, uint256 increment) public {
         minimumPrice = minPrice;
+        originalTime = block.timestamp;
 	    bidTime = block.timestamp + time;
         nsfw = nft;
         description = descrip;
 	    minimumIncrement = increment;
     }
+    
+    modifier isEnded{
+        require(block.timestamp>bidTime);
+        _;
+    }
+    
     function bid() external payable{
-    if(msg.value > currentPrice)	{
+    if(msg.value > (currentPrice + minimumIncrement)) {
 		currentPrice = msg.value;
 		highestBidder = msg.sender;
-		if(timeLeft >= 10 && timeExtensions < 10)
-		{
-			timeLeft += 10 seconds;
+		if(bidTime >= 10 seconds && timeExtensions < 10 seconds) {
+			bidTime += 10 seconds;
+			timeExtensions++;
         }
     }
 }
-}
-// Test simple win auction
-contract WinAuction {
-    
-    event Win(address winner, uint256 amount);
-
-    IERC721 public nft;
-    uint public nftId;
-
-    address payable public seller;
-    address public winner;
-
-    constructor(
-        address _nft,
-        uint _nftId
-    ) {
-        seller = payable(msg.sender);
-        nft = IERC721(_nft);
-        nftId = _nftId;
-    }
-
-    // Winds the auction for the specified amount
-    function win() external payable {
-        winner = msg.sender;
-        nft.safeTransferFrom(seller, msg.sender, nftId);
-        seller.transfer(msg.value);
-
-        emit Win(msg.sender, msg.value);
+function win(uint256 nftId) external payable isEnded {
+        require(msg.sender == highestBidder);
+        nsfw.safeTransferFrom(address (this), msg.sender, nftId);
+        //seller.transfer(msg.value);
     }
 }

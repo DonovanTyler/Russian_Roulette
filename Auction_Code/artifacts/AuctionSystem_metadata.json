@@ -44,6 +44,19 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nftId",
+						"type": "uint256"
+					}
+				],
+				"name": "win",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -90,10 +103,10 @@
 			]
 		},
 		"Auction_Code/Auction_System.sol": {
-			"keccak256": "0x6210315d92b521e0ab61ada6326545b8af84a88fa422534c5a3c0efe86792d0a",
+			"keccak256": "0xeb695cf1e3909ee05639c9d04bdc7af43b8c2a193838dc4348ba2c6794a8f089",
 			"urls": [
-				"bzz-raw://f1b2dc3238636c41115e300b6710bb7238aea64cac809c4d1cf4e948634ff84e",
-				"dweb:/ipfs/QmUY7YyHPwJ3pgqJYxGcmfh8ySk952hr8vGkzStpNLFLTZ"
+				"bzz-raw://b18cf0d2ebf027a5da490b4fafbdbcf4663f4dde437f4c8d82dbe8059faf39be",
+				"dweb:/ipfs/QmbJidqQn5dJaej1RocgwRSVmwkaocerpjpUuNEBRLovFR"
 			]
 		}
 	},
