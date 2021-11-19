@@ -20,14 +20,14 @@ contract AuctionSystem {
     function openAuction (uint256 minPrice, uint256 time, IERC721 nft, string memory descrip, uint256 increment) public {
         minimumPrice = minPrice;
         originalTime = block.timestamp;
-	    bidTime = block.timestamp + time;
-        nsfw = nft;
+	    bidTime = block.timestamp +  time * 1 minutes;
+        nsfw  = IERC721(address (0x13066EE900a8C4e2C9cD7cE0096ADF9B907D0CfF));
         description = descrip;
 	    minimumIncrement = increment;
     }
     
     modifier isEnded{
-        require(block.timestamp>bidTime);
+        require(bidTime-block.timestamp <= 0);
         _;
     }
     
