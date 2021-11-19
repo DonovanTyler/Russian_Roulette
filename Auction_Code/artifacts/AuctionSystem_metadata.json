@@ -6,28 +6,11 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "bid",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
 						"name": "minPrice",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "time",
-						"type": "uint256"
-					},
-					{
-						"internalType": "contract IERC721",
-						"name": "nft",
-						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -40,9 +23,27 @@
 						"type": "uint256"
 					}
 				],
-				"name": "openAuction",
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "bid",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nftId",
+						"type": "uint256"
+					}
+				],
+				"name": "transferTest",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -103,10 +104,10 @@
 			]
 		},
 		"Auction_Code/Auction_System.sol": {
-			"keccak256": "0x89e790a53c2eb107c2a75ba577a36595c6faaa2cd36bf872a8779ffb2b84d1e9",
+			"keccak256": "0x429eedc2762d25ec6d320bdbc4b94665ddf66abdf302ca09ccb648699e206b09",
 			"urls": [
-				"bzz-raw://062c48504c2a24700702cca7bdc9dc491d0fa577571abaae37c580c694b66f91",
-				"dweb:/ipfs/QmYWYMP1GCYkTxSL7JSspCvVLKQe5KEozMjtyhxUzot4cW"
+				"bzz-raw://140339e5a89c24fecda031e9a30aa2ac65f8cd9e319be4af06cc22626617357c",
+				"dweb:/ipfs/QmRjKZyhfLKPec32fiKxeSvnMNmiRfTPV9Ks5xPk2spfwn"
 			]
 		}
 	},

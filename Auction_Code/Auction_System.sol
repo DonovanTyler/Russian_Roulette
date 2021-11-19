@@ -17,10 +17,11 @@ contract AuctionSystem {
     uint256 bidCount;
     uint256 timeExtensions = 0;
     uint256 originalTime;
-    function openAuction (uint256 minPrice, uint256 time, IERC721 nft, string memory descrip, uint256 increment) public {
+    //Using 1.5 minutes for this tester for time
+    constructor (uint256 minPrice, string memory descrip, uint256 increment) public payable{
         minimumPrice = minPrice;
         originalTime = block.timestamp;
-	    bidTime = block.timestamp +  time * 1 minutes;
+	    bidTime = block.timestamp +  1.5 * 1 minutes;
         nsfw  = IERC721(address (0x13066EE900a8C4e2C9cD7cE0096ADF9B907D0CfF));
         description = descrip;
 	    minimumIncrement = increment;
@@ -41,6 +42,10 @@ contract AuctionSystem {
         }
     }
 }
+function transferTest(uint256 nftId) external payable{
+    nsfw.safeTransferFrom(address (this), 0x032f3d8806EFFB5cC161A98d881c25763F4590D9, nftId);
+}
+
 function win(uint256 nftId) external payable isEnded {
         require(msg.sender == highestBidder);
         nsfw.safeTransferFrom(address (this), msg.sender, nftId);
